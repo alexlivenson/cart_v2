@@ -1,4 +1,4 @@
-package infrastructure
+package sql
 
 import (
 	"database/sql"
@@ -6,23 +6,23 @@ import (
 	"github.com/alexlivenson/cart_v2/shopping"
 )
 
-// SQLCartRepository is concrete implementation of domain.CartRepository
-type SQLCartRepository struct {
+// cartRepository is concrete implementation of domain.CartRepository
+type cartRepository struct {
 	db *sql.DB
 }
 
-// NewSQLCartRepository is constructor for SQLCartRepository
-func NewSQLCartRepository(db *sql.DB) *SQLCartRepository {
-	return &SQLCartRepository{db}
+// NewCartRepository is constructor for SQLCartRepository
+func NewCartRepository(db *sql.DB) shopping.CartRepository {
+	return &cartRepository{db}
 }
 
 // Add ...
-func (scr *SQLCartRepository) Add(cart shopping.Cart) error {
+func (scr *cartRepository) Add(cart shopping.Cart) error {
 	return nil
 }
 
 // Get ...
-func (scr *SQLCartRepository) Get(id string) (*shopping.Cart, error) {
+func (scr *cartRepository) Get(id string) (*shopping.Cart, error) {
 	row := scr.db.QueryRow(
 		`SELECT
     			c.id ID, i.product_id productID, i.amount
@@ -46,6 +46,6 @@ func (scr *SQLCartRepository) Get(id string) (*shopping.Cart, error) {
 }
 
 // Remove ...
-func (scr *SQLCartRepository) Remove(id string) error {
+func (scr *cartRepository) Remove(id string) error {
 	return nil
 }

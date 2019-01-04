@@ -1,4 +1,4 @@
-package infrastructure
+package memory
 
 import (
 	"testing"
@@ -10,7 +10,7 @@ import (
 
 func TestMemoryCartRepository(t *testing.T) {
 	makeSUT := func() shopping.CartRepository {
-		return NewMemoryCartRepository()
+		return NewCartRepository()
 	}
 
 	makeCart := func() shopping.Cart {
