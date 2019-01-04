@@ -17,13 +17,13 @@ func NewCartRepository(db *sql.DB) shopping.CartRepository {
 }
 
 // Add ...
-func (scr *cartRepository) Add(cart shopping.Cart) error {
+func (cr *cartRepository) Add(cart shopping.Cart) error {
 	return nil
 }
 
 // Get ...
-func (scr *cartRepository) Get(id string) (*shopping.Cart, error) {
-	row := scr.db.QueryRow(
+func (cr *cartRepository) Get(id string) (*shopping.Cart, error) {
+	row := cr.db.QueryRow(
 		`SELECT
     			c.id ID, i.product_id productID, i.amount
 			FROM
@@ -46,6 +46,6 @@ func (scr *cartRepository) Get(id string) (*shopping.Cart, error) {
 }
 
 // Remove ...
-func (scr *cartRepository) Remove(id string) error {
+func (cr *cartRepository) Remove(id string) error {
 	return nil
 }

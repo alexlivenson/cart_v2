@@ -17,14 +17,14 @@ func NewCartRepository() shopping.CartRepository {
 }
 
 // Add appends cart to in memory cart
-func (mcr *cartRepository) Add(cart shopping.Cart) error {
-	mcr.cart[cart.ID] = cart
+func (cr *cartRepository) Add(cart shopping.Cart) error {
+	cr.cart[cart.ID] = cart
 	return nil
 }
 
 // Get retrieves in memory shopping cart
-func (mcr *cartRepository) Get(id string) (*shopping.Cart, error) {
-	cart, ok := mcr.cart[id]
+func (cr *cartRepository) Get(id string) (*shopping.Cart, error) {
+	cart, ok := cr.cart[id]
 
 	if !ok {
 		return nil, errors.New("Cart does not exist in dictonary")
@@ -34,7 +34,7 @@ func (mcr *cartRepository) Get(id string) (*shopping.Cart, error) {
 }
 
 // Remove removes cart in memory shopping cart
-func (mcr *cartRepository) Remove(id string) error {
-	delete(mcr.cart, id)
+func (cr *cartRepository) Remove(id string) error {
+	delete(cr.cart, id)
 	return nil
 }
