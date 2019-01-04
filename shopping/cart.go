@@ -7,7 +7,7 @@ type CartError string
 const ErrProductNotInCart = CartError("Product not it cart")
 
 func (e CartError) Error() string {
-	return string("Cart Error")
+	return e.Error()
 }
 
 // CartDetail give summary of Cart

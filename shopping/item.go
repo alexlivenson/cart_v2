@@ -7,7 +7,7 @@ type ItemError string
 const ErrAmountMustBePositive = ItemError("Amount must be positive")
 
 func (e ItemError) Error() string {
-	return string("Item Error")
+	return e.Error()
 }
 
 // ItemDetail is simple value object to represent an Item
