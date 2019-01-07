@@ -6,7 +6,7 @@ import (
 	"github.com/alexlivenson/cart_v2/shopping"
 )
 
-// cartRepository is concrete implementation of domain.CartRepository
+// cartRepository is concrete implementation of shopping.CartRepository
 type cartRepository struct {
 	cart map[string]shopping.Cart
 }
